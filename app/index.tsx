@@ -9,7 +9,12 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Text style={{ fontFamily: "Roboto_400Regular", fontSize: 20 }}>
+        Hello, Expo!
+      </Text>
+      <Text style={{ fontFamily: "Roboto_700Bold", fontSize: 24 }}>
+        Bold Text
+      </Text>
     </View>
   );
 }
