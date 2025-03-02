@@ -21,7 +21,7 @@ export function useLoadFonts() {
   useEffect(() => {
     async function prepare() {
       try {
-        await new Promise((resolve) => setTimeout(resolve, 2200));
+        await new Promise((resolve) => setTimeout(resolve, 4000));
       } catch (error) {
         console.warn("Error loading fonts:", error);
       } finally {

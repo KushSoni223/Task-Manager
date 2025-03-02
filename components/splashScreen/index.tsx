@@ -1,9 +1,9 @@
+import { size } from "@/theme/size";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
-import { View, Image, StyleSheet, Text } from "react-native";
+import { Image, Text, View } from "react-native";
 import styles from "./styles"; // ✅ Import as default
-import { Button } from "../button";
-import { size } from "@/theme/size";
+import AutoTypingText from "../automaticTypingText";
 
 export default function SplashScreen({ onFinish }: { onFinish: () => void }) {
   const [visible, setVisible] = useState(true);
@@ -12,7 +12,7 @@ export default function SplashScreen({ onFinish }: { onFinish: () => void }) {
     setTimeout(() => {
       setVisible(false);
       onFinish();
-    }, 2200);
+    }, 4000);
   }, []);
 
   if (!visible) return null;
@@ -26,20 +26,12 @@ export default function SplashScreen({ onFinish }: { onFinish: () => void }) {
       />
       <View style={{ gap: size.moderateScale(20) }}>
         <View style={styles.outerTextView()}>
-          <Text style={styles.text()}>
-            Simplify, Organize, and Conquer{" "}
-            <Text style={styles.innerYourDayText()}>Your Day</Text>
-          </Text>
+          <AutoTypingText
+            text="Simplify, Organize, and Conquer"
+            speed={100}
+            style={styles.text()}
+          />
         </View>
-        <View style={styles.outerTextView()}>
-          <Text style={styles.smallAchieverGoalsText()}>
-            Take control of your tasks and achieve your goals.
-          </Text>
-        </View>
-      </View>
-
-      <View>
-        <Button title="Let's Start" />
       </View>
     </View>
   );
