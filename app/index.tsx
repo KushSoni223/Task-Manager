@@ -12,12 +12,13 @@ export default function Index() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const token = await AsyncStorage.getItem("isUserLogin");
+        const token = (await AsyncStorage.getItem("isUserLogin")) ?? "";
+        const parsedToken = JSON.parse(token);
 
-        setIsLoggedIn(!!token);
+        setIsLoggedIn(!!parsedToken);
 
         if (token) {
-          router.replace("/(auth)/signup");
+          router.replace("/(auth)/onboarding");
         } else {
           router.replace("/(auth)/onboarding");
         }
