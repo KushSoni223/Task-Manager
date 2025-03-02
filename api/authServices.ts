@@ -26,6 +26,7 @@ export const authService = {
   login: async (email: string, password: string) => {
     const response = await api.post("/auth/login", { email, password });
     await AsyncStorage.setItem("auth_token", response.data.token);
+    await AsyncStorage.setItem("isUserLogin", "true");
     return response.data;
   },
   signup: async (username: string, email: string, password: string) => {

@@ -17,8 +17,8 @@ export default function Index() {
 
         setIsLoggedIn(!!parsedToken);
 
-        if (token) {
-          router.replace("/(auth)/onboarding");
+        if (parsedToken) {
+          router.replace("/(home)/home");
         } else {
           router.replace("/(auth)/onboarding");
         }

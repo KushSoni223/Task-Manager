@@ -21,7 +21,7 @@ interface ButtonProps {
   onPress?: () => void;
   activeOpacity?: number;
   loading?: boolean;
-  disabled?: boolean;
+  disabled?: boolean | string | any;
   disabledButton?: boolean;
   buttonInnerStyle?: StyleProp<ViewStyle>;
 }
@@ -62,7 +62,11 @@ export const Button: React.FC<ButtonProps> = ({
         }).start();
       }}
       activeOpacity={activeOpacity ?? 0.9}
-      style={[styles.rootContainer(), buttonStyle, { transform: [{ scale }] }]}
+      style={[
+        styles.rootContainer(disabled),
+        buttonStyle,
+        { transform: [{ scale }] },
+      ]}
     >
       {loading ? (
         <ActivityIndicator size="small" color={lightColors?.text} />
