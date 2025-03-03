@@ -3,5 +3,5 @@ import Constants from "expo-constants";
 export const Config = {
   API_URL:
     Constants.expoConfig?.extra?.API_URL ||
-    "https://7018-2402-3a80-1ea4-c0c-38a5-fe5f-fb39-7526.ngrok-free.app/api",
+    "https://923c-2402-3a80-8f7-1948-100a-bca3-6b8d-bc8b.ngrok-free.app/api",
 };

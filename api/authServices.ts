@@ -4,7 +4,6 @@ import { Config } from "@/context/Config";
 
 // Base API URL
 const API_BASE_URL = Config.API_URL; // Replace with your actual API
-console.log("dsbfjsdba", API_BASE_URL);
 
 // Axios instance
 const api = axios.create({

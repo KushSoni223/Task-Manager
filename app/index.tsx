@@ -18,7 +18,7 @@ export default function Index() {
         setIsLoggedIn(!!parsedToken);
 
         if (parsedToken) {
-          router.replace("/(home)/home");
+          router.replace("/(tabs)");
         } else {
           router.replace("/(auth)/onboarding");
         }
