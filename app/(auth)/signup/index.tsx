@@ -130,7 +130,7 @@ export default function SignupScreen() {
         </View>
       </View>
       <Button
-        title="Login"
+        title="Create Account"
         onPress={() => handleLogin()}
         disabled={
           email?.length == 0 || password?.length == 0 || username?.length == 0

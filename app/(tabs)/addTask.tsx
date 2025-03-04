@@ -22,14 +22,13 @@ registerTranslation("en", en);
 export default function AddTaskScreen() {
   const [task, setTask] = useState("");
   const [notes, setNotes] = useState("");
-  const [date, setDate] = useState<Date | null>(null);
-  const [time, setTime] = useState<Date | null>(null);
-  const [showDatePicker, setShowDatePicker] = useState(false);
-  const [showTimePicker, setShowTimePicker] = useState(false);
+  // const [date, setDate] = useState<Date | null>(null);
+  // const [time, setTime] = useState<Date | null>(null);
+  // const [showDatePicker, setShowDatePicker] = useState(false);
+  // const [showTimePicker, setShowTimePicker] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const isFormValid =
-    task.trim() !== "" && date !== null && time !== null && notes.trim() !== "";
+  const isFormValid = task.trim() !== "" && notes.trim() !== "";
 
   const handleAddTask = async () => {
     if (!isFormValid) {
@@ -78,6 +77,16 @@ export default function AddTaskScreen() {
             <Text style={{ fontSize: 16, color: "red" }}>Cancel</Text>
           </TouchableOpacity>
         </View>
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: "bold",
+            marginBottom: 8,
+            color: "#007AFF",
+          }}
+        >
+          Task
+        </Text>
 
         <TextInput
           style={{
@@ -91,79 +100,6 @@ export default function AddTaskScreen() {
           placeholderTextColor={lightColors.text}
           onChangeText={setTask}
           placeholder="Enter task name"
-        />
-
-        <Text
-          style={{
-            fontSize: 18,
-            fontWeight: "bold",
-            marginBottom: 8,
-            color: "#007AFF",
-          }}
-        >
-          Date
-        </Text>
-        <TouchableOpacity
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            marginBottom: 15,
-          }}
-          onPress={() => setShowDatePicker(true)}
-        >
-          <Ionicons name="calendar-outline" size={22} color="orange" />
-          <Text
-            style={{
-              fontSize: 16,
-              marginLeft: 10,
-              color: date ? "#555" : "gray",
-            }}
-          >
-            {date ? date.toDateString() : "Select a date"}
-          </Text>
-        </TouchableOpacity>
-
-        <DatePickerModal
-          locale="en"
-          mode="single"
-          visible={showDatePicker}
-          onDismiss={() => setShowDatePicker(false)}
-          date={date ?? new Date()}
-          onConfirm={(params: any) => {
-            setDate(params.date);
-            setShowDatePicker(false);
-          }}
-        />
-
-        <TouchableOpacity
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            marginBottom: 20,
-          }}
-          onPress={() => setShowTimePicker(true)}
-        >
-          <Ionicons name="time-outline" size={22} color="orange" />
-          <Text
-            style={{
-              fontSize: 16,
-              marginLeft: 10,
-              color: time ? "#555" : "gray",
-            }}
-          >
-            {time ? time.toLocaleTimeString() : "Select a time"}
-          </Text>
-        </TouchableOpacity>
-
-        <TimePickerModal
-          visible={showTimePicker}
-          onDismiss={() => setShowTimePicker(false)}
-          onConfirm={(params: any) => {
-            const newTime = new Date();
-            newTime.setHours(params.hours, params.minutes);
-            setTime(newTime);
-            setShowTimePicker(false);
-          }}
         />
 
         <Text
