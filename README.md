@@ -1,50 +1,146 @@
-# Welcome to your Expo app 👋
+# React Native Frontend App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## 📌 Project Overview
 
-## Get started
+This is a React Native app built with Expo for authentication and task management. It connects to a Node.js backend with MongoDB.
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## 📦 Prerequisites
 
-2. Start the app
+Ensure you have the following installed before setting up the project:
 
-   ```bash
-    npx expo start
-   ```
+- **Node.js** (v16 or later) - [Download here](https://nodejs.org/)
+- **Yarn** (Recommended) - Install using `npm install -g yarn`
+- **Expo CLI** - Install using `npm install -g expo-cli`
+- **Android Studio** (For Android development)
+- **Xcode** (For iOS development on macOS)
+- **VS Code** (Recommended for editing)
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 🚀 Setup Instructions
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### 1️⃣ Clone the Repository
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```sh
+git clone https://github.com/KushSoni223/Task-Manager.git
+cd Task-Manager
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2️⃣ Install Dependencies
 
-## Learn more
+```sh
+yarn install
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### 3️⃣ Configure Environment Variables
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Create a `.env` file in the root directory and add the required variables:
 
-## Join the community
+```sh
+API_URL='https://task-backend-jfl38gw14-kushsoni223s-projects.vercel.app/api'
+```
 
-Join our community of developers creating universal apps.
+### 4️⃣ Run the App
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+#### **For Android**
+
+Start the development server:
+
+```sh
+yarn start
+```
+
+Then, open another terminal and run:
+
+```sh
+yarn android
+```
+
+#### **For iOS** (Mac Only)
+
+```sh
+yarn ios
+```
+
+> Note: You need an Apple Developer account to run on a physical iOS device.
+
+#### **For Web**
+
+```sh
+yarn web
+```
+
+---
+
+## 🔧 Project Structure
+
+```
+react-native-app/
+│-- api/
+│   ├── components/    # Reusable UI components
+│   ├── screens/       # App screens
+│   ├── navigation/    # React Navigation setup
+│   ├── context/       # Context API (for global state management)
+│   ├── services/      # API calls
+│   ├── utils/         # Utility functions
+│-- app/
+│   ├── (auth)/        auth navigation and all navigation and all screens
+|-- ├── layout.tsx     all layout files which is mainly used
+│-- assets/            # Images, fonts, etc.
+│-- components/        # Reusable-Components, buttons, etc.
+│-- context/           # Config, etc.
+│-- hooks/             # fonts layout updated, etc.
+│-- .env               # Environment variables
+│-- App.tsx            # Main entry point
+│-- package.json       # Dependencies and scripts
+```
+
+---
+
+## 🔑 Authentication
+
+This app supports:
+✅ Signup & Login (JWT-based authentication)  
+✅ Password Reset via OTP  
+✅ Secure AsyncStorage for token storage
+
+---
+
+## 🛠 Troubleshooting
+
+### 🔹 Metro Bundler Not Starting
+
+Try clearing cache:
+
+```sh
+yarn start --reset-cache
+```
+
+### 🔹 Android App Not Running
+
+Ensure an emulator or device is connected:
+
+```sh
+adb devices
+```
+
+If no device is listed, restart the emulator or connect a real device.
+
+### 🔹 iOS Build Fails
+
+Run:
+
+```sh
+cd ios && pod install && cd ..
+yarn ios
+```
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+Happy Coding! 🚀
