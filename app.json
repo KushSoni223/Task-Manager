@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "TaskManager",
+    "scheme": "taskmanager",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -32,7 +32,19 @@
       "typedRoutes": true
     },
     "extra": {
-      "API_URL": "https://task-manager-backend-production-ea27.up.railway.app/api"
+      "API_URL": "https://task-manager-backend-production-ea27.up.railway.app/api",
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "d054dfb8-602e-4bda-84d4-05ebf4fd5583"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/d054dfb8-602e-4bda-84d4-05ebf4fd5583"
     }
   }
 }

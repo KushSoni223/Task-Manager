@@ -94,7 +94,7 @@ export default function LoginScreen() {
               value={password}
               onChangeText={(text) => {
                 setPassword(text);
-                setErrors((prev) => ({ ...prev, password: "" })); // Clear error on input change
+                setErrors((prev) => ({ ...prev, password: "" }));
               }}
             />
             <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
@@ -111,9 +111,13 @@ export default function LoginScreen() {
         </View>
       </View>
 
-      <View>
+      <TouchableOpacity
+        onPress={() => {
+          router.push("/(auth)/forgotPass");
+        }}
+      >
         <Text style={styles.forgotPasswordText}>Forgot Password</Text>
-      </View>
+      </TouchableOpacity>
 
       <Button
         title="Login"
